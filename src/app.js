@@ -19,6 +19,8 @@ app.get('/', (req, res) => {
 app.use('/api/v1/auth', require('./router/auth.routes'));
 app.use('/api/v1/user', require('./router/user.routes'));
 
-app.listen(config.PORT, () => {
-   console.log(`Server is listening at PORT: ${config.PORT}`);
+const PORT = process.env.PORT || config.PORT;
+
+app.listen(PORT, () => {
+   console.log(`Server is listening at PORT: ${PORT}`);
 });
